@@ -63,6 +63,11 @@ To verify whether pip is already installed for your preferred Python:
 $ python3 -m pip -V
 pip 21.0.1 from /usr/lib/python3.9/site-packages/pip (python 3.9)
 ```
+*Install it with ``apt install python3-pip``* and setup pip packages path :
+
+```bash
+PATH=$PATH:~/.local/bin
+```
 
 Install Ansible and ansible-lint :
 

@@ -33,4 +33,10 @@ base_developer_tools:
 base_virtualization_tools:
   - virtualbox
   - virtualbox-ext-pack
-  
+
+developer_fonts:
+  - fonts-firacode
+  - fonts-roboto
+  - fonts-open-sans
+  - fonts-hack
+  - fonts-powerline

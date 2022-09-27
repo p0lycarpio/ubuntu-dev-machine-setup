@@ -3,7 +3,11 @@
   ansible.builtin.apt:
     name: "{{ base_developer_tools }}"
     state: present
-    force_apt_get: true
+
+- name: Install developer fonts
+  ansible.builtin.apt:
+    name: "{{ developer_fonts }}"
+    state: present
 
 # Fix for bat syntax highlighting tool; Ubuntu packages it as batcat instead of just bat
 - name: create symlink for bat
@@ -27,9 +31,9 @@
     state: present
     force_apt_get: true
 
-- roles:
-  - role: geerlingguy.docker
-  - role: morgangraphics.ansible_role_nvm
+- name: Install docker
+  ansible.builtin.import_role:
+    name: geerlingguy.docker
 
 # add user to docker group to run docker commands without sudo
 # add user to vboxusers group so that user can attach usb devices to guest OS
