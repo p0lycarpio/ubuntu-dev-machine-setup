@@ -1,0 +1,27 @@
+---
+
+- name: Install Firefox with apt
+  when: ansible_facts['distribution'] == "Ubuntu"
+  become: true
+  block:
+    - name: Remove snap package
+      community.general.snap:
+        name: firefox
+        state: absent
+
+    - name: Add repository
+      ansible.builtin.apt_repository:
+        repo: ppa:mozillateam/ppa
+
+    - name: Copy repo preference
+      ansible.builtin.Copy:
+        src: mozilla-firefox
+        dest: /etc/apt/preferences.d/*
+        mode: "7666"
+
+    - name: Install Firefox
+      ansible.builtin.apt:
+        name: firefox
+        state: present
+        update_cache: true
+        

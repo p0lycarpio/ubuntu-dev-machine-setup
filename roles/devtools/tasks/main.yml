@@ -1,0 +1,4 @@
+---
+- include_tasks: essentials.yml
+- include_tasks: vscode.yml
+- include_tasks: hashicorp.yml

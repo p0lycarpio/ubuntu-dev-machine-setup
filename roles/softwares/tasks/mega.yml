@@ -1,0 +1,19 @@
+---
+- name: Install Mega from remote depo
+  when: ansible_facts['distribution'] == "Ubuntu"
+  become: true
+  block:
+    - name: Add repo
+      ansible.builtin.apt_repository:
+        repo: "deb https://mega.nz/linux/MEGAsync/x{{ ansible_distribution }}_{{ ansible_distribution_version }}/ ./'"
+        state: present
+
+    - name: Add key
+      ansible.builtin.apt_key:
+        url: "https://mega.nz/linux/MEGAsync/x{{ ansible_distribution }}_{{ ansible_distribution_version }}/Release.key"
+
+    - name: Install MEGASync
+      ansible.builtin.apt:
+        name: megasync
+        state: present
+        update_cache: true

@@ -1,0 +1,36 @@
+---
+base_developer_tools:
+  - 2to3
+  - ansible
+  - ansible-lint
+  - bat
+  - bpython
+  - build-essential
+  - colordiff
+  - csvkit
+  - curl
+  - default-jdk
+  - exa
+  - filezilla
+  - gcc
+  - git
+  - golang-go
+  - htop
+  - jq
+  - make
+  - maven
+  - perl
+  - pylint
+  - python3-cachecontrol
+  - python3-pep8
+  - python3-pip
+  - python3-poetry
+  - sshfs
+  - sshpass
+  - tree
+  - yamllint
+
+base_virtualization_tools:
+  - virtualbox
+  - virtualbox-ext-pack
+  

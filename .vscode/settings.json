@@ -1,0 +1,7 @@
+{
+  "files.associations": {
+    "main.yml": "ansible",
+    "**/tasks/**.yml": "ansible",
+    "*.yml.j2": "ansible"
+  }
+}

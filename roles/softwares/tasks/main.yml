@@ -1,0 +1,10 @@
+---
+- include_tasks: firefox.yml
+- include_tasks: googlechrome.yml
+- include_tasks: mega.yml
+
+- name: Install Discord (snap)
+  ansible.community.snap:
+    name: discord
+    state: present
+    
