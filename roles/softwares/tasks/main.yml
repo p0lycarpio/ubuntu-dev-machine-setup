@@ -4,7 +4,7 @@
 - include_tasks: mega.yml
 
 - name: Install Discord (snap)
-  ansible.community.snap:
+  community.general.snap:
     name: discord
     state: present
     

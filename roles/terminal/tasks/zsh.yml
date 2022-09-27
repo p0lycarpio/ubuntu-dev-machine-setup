@@ -20,9 +20,9 @@
     version: "{{ zsh_antigen_git_version }}"
 
 - name: "ZSH configuration file"
-  block:
   become: true
   become_user: "{{ local_username }}"
+  block:
     - name: Check if .zshrc exists in user's home dir
       ansible.builtin.stat:
         path: "~{{ local_username }}/.zshrc"

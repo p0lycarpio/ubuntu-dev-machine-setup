@@ -14,7 +14,7 @@
         repo: ppa:mozillateam/ppa
 
     - name: Copy repo preference
-      ansible.builtin.Copy:
+      ansible.builtin.copy:
         src: mozilla-firefox
         dest: /etc/apt/preferences.d/*
         mode: "7666"

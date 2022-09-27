@@ -3,15 +3,16 @@
   when: ansible_facts['distribution'] == "Ubuntu"
   become: true
   block:
-    - name: Add repo
-      ansible.builtin.apt_repository:
-        repo: "deb https://mega.nz/linux/MEGAsync/x{{ ansible_distribution }}_{{ ansible_distribution_version }}/ ./'"
-        state: present
-
-    - name: Add key
+    - name: Add MEGASync key
       ansible.builtin.apt_key:
-        url: "https://mega.nz/linux/MEGAsync/x{{ ansible_distribution }}_{{ ansible_distribution_version }}/Release.key"
+        url: "https://mega.nz/linux/repo/x{{ ansible_distribution }}_{{ ansible_distribution_version }}/Release.key"
 
+    - name: Add MEGASync repo
+      ansible.builtin.apt_repository:
+        repo: "deb https://mega.nz/linux/repo/x{{ ansible_distribution }}_{{ ansible_distribution_version }}/ ./"
+        state: present
+        filename: megasync
+    
     - name: Install MEGASync
       ansible.builtin.apt:
         name: megasync

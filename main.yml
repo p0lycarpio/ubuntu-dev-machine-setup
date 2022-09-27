@@ -5,7 +5,3 @@
     - terminal
     - softwares
     - devtools
-
-  import_playbook: post_install.yml
-
-...
