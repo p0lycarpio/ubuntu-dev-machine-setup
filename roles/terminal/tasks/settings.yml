@@ -1,10 +1,10 @@
 ---
 
-- name: Download Monospace fonts
+- name: Download Monospace terminal fonts
   become: true
   become_user: "{{ local_username }}"
   block:
-    - name: create local fonts directory
+    - name: Create local fonts directory
       ansible.builtin.file:
         path: "~{{ local_username }}/.local/share/fonts"
         state: directory

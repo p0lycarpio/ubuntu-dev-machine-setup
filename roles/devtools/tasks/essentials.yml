@@ -1,5 +1,5 @@
 ---
-- name: install developer tools
+- name: Install developer tools
   ansible.builtin.apt:
     name: "{{ base_developer_tools }}"
     state: present
@@ -17,7 +17,7 @@
     state: link
     force: false
 
-- name: create .ssh dir
+- name: Create .ssh dir
   ansible.builtin.file:
     path: "~{{ local_username }}/.ssh"
     state: directory
@@ -25,7 +25,7 @@
   become: true
   become_user: "{{ local_username }}"
 
-- name: install virtualization tools
+- name: Install virtualization tools
   ansible.builtin.apt:
     name: "{{ base_virtualization_tools }}"
     state: present
@@ -34,7 +34,7 @@
   ansible.builtin.import_role:
     name: geerlingguy.docker
 
-- name: add user to docker and vboxusers groups
+- name: Add user to docker and vboxusers groups
   ansible.builtin.group:
     name: "{{ item }}"
     state: present
@@ -44,7 +44,7 @@
 
 # add user to docker group to run docker commands without sudo
 # add user to vboxusers group so that user can attach usb devices to guest OS
-- name: add user to docker and vboxusers groups
+- name: Add user to docker and vboxusers groups
   ansible.builtin.user:
     name: "{{ local_username }}"
     append: true
