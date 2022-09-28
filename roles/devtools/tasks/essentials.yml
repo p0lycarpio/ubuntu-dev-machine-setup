@@ -34,6 +34,14 @@
   ansible.builtin.import_role:
     name: geerlingguy.docker
 
+- name: add user to docker and vboxusers groups
+  ansible.builtin.group:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - docker
+    - vboxusers
+
 # add user to docker group to run docker commands without sudo
 # add user to vboxusers group so that user can attach usb devices to guest OS
 - name: add user to docker and vboxusers groups

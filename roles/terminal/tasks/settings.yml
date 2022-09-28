@@ -8,6 +8,8 @@
       ansible.builtin.file:
         path: "~{{ local_username }}/.local/share/fonts"
         state: directory
+        mode: "0775"
+        recurse: true
 
     - name: Download nerd fonts to local fonts folder
       ansible.builtin.get_url:
