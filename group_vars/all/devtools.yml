@@ -1,8 +1,5 @@
 ---
 base_developer_tools:
-  - 2to3
-  - ansible
-  - ansible-lint
   - bat
   - bpython
   - build-essential
@@ -36,7 +33,7 @@ base_virtualization_tools:
 
 developer_fonts:
   - fonts-firacode
+  - fonts-jetbrains-mono
   - fonts-roboto
   - fonts-open-sans
-  - fonts-hack
   - fonts-powerline

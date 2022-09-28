@@ -9,13 +9,13 @@
         path: "~{{ local_username }}/.local/share/fonts"
         state: directory
 
-    - name: download nerd fonts to local fonts folder
+    - name: Download nerd fonts to local fonts folder
       ansible.builtin.get_url:
         url: "{{ item  }}"
         dest: "~{{ local_username }}/.local/share/fonts/"
       with_items: "{{ terminal_customizations_nerd_fonts }}"
 
-    - name: refresh fonts cache
+    - name: Refresh fonts cache
       ansible.builtin.shell: "fc-cache -fv"
       become: true
       become_user: "{{ local_username }}"

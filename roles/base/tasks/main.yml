@@ -27,14 +27,17 @@
     upgrade: dist
     force_apt_get: true
 
-- name: Install productivity tools
-  ansible.builtin.apt:
-    name: "{{ base_productivity_tools }}"
-    state: present
-    force_apt_get: true
-
 - name: Install system tools
   ansible.builtin.apt:
     name: "{{ base_system_tools }}"
     state: present
-    force_apt_get: true
+
+- name: Install GNOME apps
+  ansible.builtin.apt:
+    name: "{{ gnome_apps }}"
+    state: present
+
+- name: Install productivity tools
+  ansible.builtin.apt:
+    name: "{{ base_productivity_tools }}"
+    state: present

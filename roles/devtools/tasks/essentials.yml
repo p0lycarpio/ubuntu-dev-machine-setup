@@ -29,7 +29,6 @@
   ansible.builtin.apt:
     name: "{{ base_virtualization_tools }}"
     state: present
-    force_apt_get: true
 
 - name: Install docker
   ansible.builtin.import_role:

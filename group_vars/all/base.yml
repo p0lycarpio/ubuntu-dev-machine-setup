@@ -14,4 +14,12 @@ base_system_tools:
   - net-tools
   - nmap
   - speedtest-cli
-...
+
+gnome_apps:
+  - gnome-calendar
+  - gnome-calculator
+  - gnome-font-viewer
+  - gnome-logs
+  - gnome-shell-extensions
+  - gnome-text-editor
+  - gnome-tweaks

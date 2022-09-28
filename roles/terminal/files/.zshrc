@@ -39,15 +39,12 @@ antigen bundle lukechilds/zsh-nvm
 # https://github.com/caiogondim/bullet-train.zsh
 #antigen theme caiogondim/bullet-train.zsh bullet-train
 
-antigen theme agkozak
+antigen theme robbyrussell
 
 # Tell antigen that you're done.
 antigen apply
 
 zstyle ':omz:' mode reminder
-
-AGKOZAK_PROMPT_CHAR=( $ %# : )
-AGKOZAK_MULTILINE=0
 
 #export PATH=$HOME/bin:/usr/local/bin:$PATH:~/.local/bin
 export VAGRANT_DEFAULT_PROVIDER='virtualbox'
