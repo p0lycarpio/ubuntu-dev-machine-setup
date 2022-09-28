@@ -55,26 +55,6 @@ You need to install `ansible` and `git` before running the playbooks.
 /usr/bin/sudo apt install ansible git -y
 ```
 
-### Ansible
-
-To verify whether pip is already installed for your preferred Python:
-
-```bash
-$ python3 -m pip -V
-pip 21.0.1 from /usr/lib/python3.9/site-packages/pip (python 3.9)
-```
-*Install it with ``apt install python3-pip``* and setup pip packages path :
-
-```bash
-PATH=$PATH:~/.local/bin
-```
-
-Install Ansible and ansible-lint :
-
-```bash
-python3 -m pip install --user ansible ansible-lint
-```
-
 ## Step 1 | Basic setup
 
 Clone this repo (do not clone in `/tmp` as this dir is cleaned and mounted in tmpfs)
