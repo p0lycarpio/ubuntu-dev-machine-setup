@@ -7,8 +7,12 @@ base_productivity_tools:
   - libreoffice-l10n-fr
   - pandoc
   - texlive
+  - texlive-xetex
   - texlive-lang-french
   - texlive-latex-extra
+  - texlive-latex-recommended
+  - texlive-fonts-recommended
+  - texlive-fonts-extra
 
 base_system_tools:
   - net-tools
@@ -16,6 +20,7 @@ base_system_tools:
   - speedtest-cli
   - curl
   - wget
+  - apt-transport-https
 
 gnome_apps:
   - gnome-calendar

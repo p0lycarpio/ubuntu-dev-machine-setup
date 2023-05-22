@@ -1,0 +1,21 @@
+---
+- name: Install Spotify from remote depo
+  become: true
+  block:
+    - name: install Spotify GPG key
+      ansible.builtin.apt_key:
+        url: https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg
+        state: present
+
+    - name: enable Spotify repo
+      ansible.builtin.apt_repository:
+        repo: deb http://repository.spotify.com stable non-free
+        filename: /etc/apt/sources.list.d/spotify.lisr
+        state: present
+        update_cache: yes
+
+    - name: install Spotify
+      ansible.builtin.apt:
+        name: spotify-client
+        state: present
+        update_cache: true
