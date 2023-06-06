@@ -2,6 +2,7 @@
 
 # nerd fonts from https://github.com/ryanoasis/nerd-fonts
 terminal_customizations_nerd_fonts:
-  - "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/LiberationMono/complete/Literation%20Mono%20Nerd%20Font%20Complete.ttf"
-  - "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/LiberationMono/complete/Literation%20Mono%20Bold%20Nerd%20Font%20Complete.ttf"
-  - "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/LiberationMono/complete/Literation%20Mono%20Italic%20Nerd%20Font%20Complete.ttf"
+  - "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/LiberationMono/LiterationMonoNerdFontMono-Regular.ttf"
+  - "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/LiberationMono/LiterationMonoNerdFontMono-Italic.ttf"
+  - "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/LiberationMono/LiterationMonoNerdFontMono-Bold.ttf"
+  - "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/LiberationMono/LiterationMonoNerdFontMono-BoldItalic.ttf"

@@ -5,22 +5,22 @@
     url: "{{ hashicorp_apt_key_url }}"
     keyring: "{{ hashicorp_apt_key_keyring }}"
 
-- name: Add hashicorp repo for ubuntu 22.04
+- name: Add Hashicorp repo for Ubuntu 22.04
   ansible.builtin.apt_repository:
     repo: "{{ hashicorp_repo_jammy }}"
     state: present
     filename: hashicorp
   when: ansible_distribution_release == "jammy"
 
-- name: Prioritize packages from hashicorp apt repo
+- name: Prioritize packages from Hashicorp APT repo
   ansible.builtin.copy:
-    src: etc/apt/preferences.d/hashicorp.pref
+    src: hashicorp.pref
     dest: /etc/apt/preferences.d/hashicorp.pref
     owner: root
     group: root
     mode: 0644
 
-- name: Install hashicorp packages
+- name: Install Hashicorp packages
   ansible.builtin.apt:
     name: "{{ hashicorp_packages }}"
     force_apt_get: true

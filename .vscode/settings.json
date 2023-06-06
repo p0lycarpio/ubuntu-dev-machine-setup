@@ -3,5 +3,6 @@
     "main.yml": "ansible",
     "**/tasks/**.yml": "ansible",
     "*.yml.j2": "ansible"
-  }
+  },
+  "ansible.python.interpreterPath": "/bin/python3"
 }

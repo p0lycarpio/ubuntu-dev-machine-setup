@@ -28,5 +28,4 @@ gnome_apps:
   - gnome-font-viewer
   - gnome-logs
   - gnome-shell-extensions
-  - gnome-text-editor
   - gnome-tweaks
