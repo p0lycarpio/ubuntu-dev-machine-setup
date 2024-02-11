@@ -13,6 +13,8 @@ base_productivity_tools:
   - texlive-latex-recommended
   - texlive-fonts-recommended
   - texlive-fonts-extra
+  - thunderbird
+  - thunderbird-locale-fr
 
 base_system_tools:
   - net-tools

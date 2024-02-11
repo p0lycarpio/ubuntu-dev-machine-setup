@@ -1,7 +1,6 @@
 ---
 - include_tasks: firefox.yml
 - include_tasks: googlechrome.yml
-- include_tasks: mega.yml
 
 - name: Install Discord (snap)
   community.general.snap:
