@@ -1,9 +1,5 @@
 ---
+- include_tasks: packages.yml
+- include_tasks: chrome.yml
 - include_tasks: firefox.yml
-- include_tasks: googlechrome.yml
-
-- name: Install Discord (snap)
-  community.general.snap:
-    name: discord
-    state: present
-    
+  when: ansible_distribution == "Ubuntu"

@@ -1,26 +1,36 @@
 ---
+- name: Setup Ubuntu Hashicorp packages
+  when: ansible_distribution == "Ubuntu"
+  block:
+  - name: Add hashicorp apt key
+    ansible.builtin.apt_key:
+      url: "{{ hashicorp_apt_key_url }}"
+      keyring: "{{ hashicorp_apt_key_keyring }}"
 
-- name: Add hashicorp apt key
-  ansible.builtin.apt_key:
-    url: "{{ hashicorp_apt_key_url }}"
-    keyring: "{{ hashicorp_apt_key_keyring }}"
+  - name: Add Hashicorp repo for Ubuntu 22.04
+    ansible.builtin.apt_repository:
+      repo: "{{ hashicorp_repo_jammy }}"
+      state: present
+      filename: hashicorp
+    when: ansible_distribution_release == "jammy"
 
-- name: Add Hashicorp repo for Ubuntu 22.04
-  ansible.builtin.apt_repository:
-    repo: "{{ hashicorp_repo_jammy }}"
+  - name: Prioritize packages from Hashicorp APT repo
+    ansible.builtin.copy:
+      src: hashicorp.pref
+      dest: /etc/apt/preferences.d/hashicorp.pref
+      owner: root
+      group: root
+      mode: 0644
+
+- name: Setup Fedora Hashicorp packages
+  when: ansible_distribution == "Fedora"
+  ansible.builtin.yum_repository:
+    name: hashicorp
+    description: Hashicorp Linux RPM Repository
+    baseurl: https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
     state: present
-    filename: hashicorp
-  when: ansible_distribution_release == "jammy"
-
-- name: Prioritize packages from Hashicorp APT repo
-  ansible.builtin.copy:
-    src: hashicorp.pref
-    dest: /etc/apt/preferences.d/hashicorp.pref
-    owner: root
-    group: root
-    mode: 0644
 
 - name: Install Hashicorp packages
-  ansible.builtin.apt:
+  ansible.builtin.package:
     name: "{{ hashicorp_packages }}"
-    force_apt_get: true
+    state: present

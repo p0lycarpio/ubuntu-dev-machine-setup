@@ -3,18 +3,10 @@
 base_productivity_tools:
   - evince
   - libreoffice
-  - libreoffice-gnome
-  - libreoffice-l10n-fr
   - pandoc
   - texlive
   - texlive-xetex
-  - texlive-lang-french
-  - texlive-latex-extra
-  - texlive-latex-recommended
-  - texlive-fonts-recommended
-  - texlive-fonts-extra
   - thunderbird
-  - thunderbird-locale-fr
 
 base_system_tools:
   - net-tools
@@ -22,12 +14,24 @@ base_system_tools:
   - speedtest-cli
   - curl
   - wget
-  - apt-transport-https
 
 gnome_apps:
   - gnome-calendar
   - gnome-calculator
   - gnome-font-viewer
   - gnome-logs
-  - gnome-shell-extensions
   - gnome-tweaks
+
+ubuntu_packages:
+  - apt-transport-https
+  - texlive-lang-french
+  - texlive-latex-recommended
+  - texlive-fonts-recommended
+  - libreoffice-l10n-fr
+  - thunderbird-locale-fr
+
+fedora_packages:
+  - flatpak
+  - gnome-shell-extension-dash-to-dock
+  - texlive-scheme-medium
+  - vlc

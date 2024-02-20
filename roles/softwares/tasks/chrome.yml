@@ -1,0 +1,26 @@
+---
+
+- name: Install Chrome on Ubuntu
+  when: ansible_distribution == 'Ubuntu'
+  block:
+  - name: Add Google Chrome apt key
+    ansible.builtin.apt_key:
+      url: "{{ googlechrome_apt_key_url }}"
+      keyring: "{{ googlechrome_apt_key_keyring }}"
+
+  - name: Add Google Chrome repo
+    ansible.builtin.apt_repository:
+      repo: "{{ googlechrome_repo }}"
+      state: present
+      filename: google-chrome
+
+  - name: Install Google Chrome
+    ansible.builtin.apt:
+      name: google-chrome-stable
+      force_apt_get: true
+
+- name: Install Chromium
+  when: ansible_distribution == "Fedora"
+  ansible.builtin.dnf:
+    name: chromium
+    state: present

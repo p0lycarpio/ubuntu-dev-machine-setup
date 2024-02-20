@@ -1,17 +1,32 @@
 ---
 
-- name: Add vscode apt key
-  ansible.builtin.apt_key:
-    url: "{{ vscode_apt_key_url }}"
-    keyring: "{{ vscode_apt_key_keyring }}"
+- name: vscode Ubuntu
+  when: ansible_distribution == 'Ubuntu'
+  block:
+  - name: Add vscode apt key
+    ansible.builtin.apt_key:
+      url: "{{ vscode_gpg_key }}"
+      keyring: "{{ vscode_apt_key_keyring }}"
 
-- name: Add vscode repo
-  ansible.builtin.apt_repository:
-    repo: "{{ vscode_repo }}"
-    state: present
-    filename: vscode
+  - name: Add vscode repo
+    ansible.builtin.apt_repository:
+      repo: "{{ vscode_apt_repo }}"
+      state: present
+      filename: vscode
 
-- name: Install latest visual studio code
-  ansible.builtin.apt:
+
+- name: vscode Fedora
+  when: ansible_distribution == 'Fedora'
+  block:
+  - name: Add vscode repo
+    ansible.builtin.yum_repository:
+      name: code
+      description: Visual Studio Code repo
+      file: vscode
+      gpgkey: "{{ vscode_gpg_key }}"
+      baseurl: "{{ vscode_yum_repo }}"
+
+- name: Install Visual Studio Code
+  ansible.builtin.package:
     name: code
-    force_apt_get: true
+    state: present

@@ -1,16 +1,16 @@
 ---
+- name: Install common tools
+  ansible.builtin.package:
+    name: "{{ common_developer_tools }}"
+    state: present
+
 - name: Install developer tools
-  ansible.builtin.apt:
-    name: "{{ base_developer_tools }}"
+  ansible.builtin.package:
+    name: "{{ vars[ansible_distribution | lower() + '_developer_tools'] }}"
     state: present
 
-- name: Install developer fonts
-  ansible.builtin.apt:
-    name: "{{ developer_fonts }}"
-    state: present
-
-# Fix for bat syntax highlighting tool; Ubuntu packages it as batcat instead of just bat
 - name: create symlink for bat
+  when: ansible_os_family == "Debian"
   ansible.builtin.file:
     src: /usr/bin/batcat
     dest: /usr/bin/bat
@@ -22,15 +22,8 @@
     path: "~{{ local_username }}/.ssh"
     state: directory
     mode: '0700'
-  become: true
-  become_user: "{{ local_username }}"
 
-- name: Install virtualization tools
-  ansible.builtin.apt:
-    name: "{{ base_virtualization_tools }}"
-    state: present
-
-- name: Install docker
+- name: Install Docker
   ansible.builtin.import_role:
     name: geerlingguy.docker
 
@@ -38,7 +31,7 @@
   ansible.builtin.group:
     name: "{{ item }}"
     state: present
-  with_items:
+  loop:
     - docker
     - vboxusers
 

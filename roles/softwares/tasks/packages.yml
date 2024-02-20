@@ -1,0 +1,35 @@
+---
+
+- name: Install system tools, GNOME apps, and productivity tools
+  ansible.builtin.package:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - "{{ base_system_tools }}"
+    - "{{ gnome_apps }}"
+    - "{{ base_productivity_tools }}"
+
+- name: Install Ubuntu specific packages
+  when: ansible_distribution == "Ubuntu"
+  ansible.builtin.apt:
+    name: "{{ ubuntu_packages }}"
+    state: present
+
+- name: Install Fedora specific packages
+  when: ansible_distribution == "Fedora"
+  ansible.builtin.dnf:
+    name: "{{ fedora_packages }}"
+    state: present
+
+- name: Install Flatpak packages
+  community.general.flatpak:
+    name: "{{ item }}"
+    state: present
+    remote: flathub
+  loop:
+    - com.discordapp.Discord
+    - com.mattjakeman.ExtensionManager
+    - com.nextcloud.desktopclient.nextcloud
+    - org.gnome.World.Iotas
+    - org.keepassxc.KeePassXC
+    - rest.insomnia.Insomnia

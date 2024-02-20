@@ -1,0 +1,17 @@
+# zsh users
+zsh-users/zsh-syntax-highlighting
+
+# ohmyzsh plugins
+ohmyzsh/ohmyzsh path:lib
+ohmyzsh/ohmyzsh path:themes/robbyrussell.zsh-theme
+ohmyzsh/ohmyzsh path:plugins/ansible kind:defer
+ohmyzsh/ohmyzsh path:plugins/colored-man-pages kind:defer
+ohmyzsh/ohmyzsh path:plugins/command-not-found kind:defer
+ohmyzsh/ohmyzsh path:plugins/common-aliases
+ohmyzsh/ohmyzsh path:plugins/dnf
+ohmyzsh/ohmyzsh path:plugins/docker
+ohmyzsh/ohmyzsh path:plugins/git
+ohmyzsh/ohmyzsh path:plugins/python
+ohmyzsh/ohmyzsh path:plugins/sudo
+ohmyzsh/ohmyzsh path:plugins/vagrant kind:defer
+ohmyzsh/ohmyzsh path:plugins/vscode

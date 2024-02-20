@@ -1,27 +1,22 @@
 ---
 
-- name: Install zsh and other related packages
-  ansible.builtin.apt:
-    name: "{{ zsh_packages }}"
+- name: Install zsh shell
+  ansible.builtin.package:
+    name: zsh
     state: present
-    force_apt_get: true
 
 - name: Change user's shell to zsh
   ansible.builtin.user:
     name: "{{ local_username }}"
     shell: /bin/zsh
 
-- name: Install antigen
-  become: true
-  become_user: "{{ local_username }}"
+- name: Install Antidote
   ansible.builtin.git:
-    dest: "~{{ local_username }}/.antigen"
-    repo: "{{ zsh_antigen_url }}"
-    version: "{{ zsh_antigen_git_version }}"
+    dest: "~{{ local_username }}/.antidote"
+    repo: https://github.com/mattmc3/antidote.git
+    depth: 1
 
-- name: "ZSH configuration file"
-  become: true
-  become_user: "{{ local_username }}"
+- name: "Configure Zsh"
   block:
     - name: Check if .zshrc exists in user's home dir
       ansible.builtin.stat:
@@ -31,13 +26,18 @@
     - name: Backup .zshrc if it exists
       ansible.builtin.copy:
         src: "~{{ local_username }}/.zshrc"
-        dest: "~{{ local_username }}/.zshrc.orig"
-        mode: "0775"
+        dest: "~{{ local_username }}/.zshrc.bak"
+        mode: "0664"
       when: dotzshrc.stat.exists
 
-    - name: Copy the sample .zshrc file
+    - name: Copy .zshrc configuration file
       ansible.builtin.copy:
         src: .zshrc
         dest: "~{{ local_username }}/.zshrc"
-        force: true
-        mode: "0775"
+        mode: "0664"
+
+    - name: Copy .zsh_plugins.txt file
+      ansible.builtin.copy:
+        src: .zshrc
+        dest: "~{{ local_username }}/.zshrc"
+        mode: "0664"

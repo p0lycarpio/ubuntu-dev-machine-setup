@@ -1,7 +1,6 @@
 ---
 
 - name: Install Firefox with apt
-  when: ansible_facts['distribution'] == "Ubuntu"
   become: true
   block:
     - name: Remove snap package

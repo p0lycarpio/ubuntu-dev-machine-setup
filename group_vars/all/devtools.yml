@@ -1,37 +1,37 @@
 ---
-base_developer_tools:
+
+common_developer_tools:
   - bat
-  - build-essential
   - colordiff
-  - csvkit
-  - curl
-  - default-jdk
   - exa
-  - filezilla
-  - gcc
   - git
-  - golang-go
   - jq
-  - make
   - maven
   - perl
   - pylint
-  - python3-cachecontrol
-  - python3-pep8
   - python3-pip
   - python3-poetry
-  - sshfs
   - sshpass
   - tree
   - yamllint
 
-base_virtualization_tools:
+ubuntu_developer_tools:
+  - build-essential
+  - default-jdk
+  - fonts-firacode
+  - fonts-inter
+  - fonts-jetbrains-mono
+  - fonts-roboto
+  - golang-go
+  - sshfs
   - virtualbox
   - virtualbox-ext-pack
 
-developer_fonts:
-  - fonts-firacode
-  - fonts-jetbrains-mono
-  - fonts-roboto
-  - fonts-open-sans
-  - fonts-powerline
+fedora_developer_tools:
+  - '@development-tools'
+  - fira-code-fonts
+  - jetbrains-mono-fonts
+  - golang
+  - google-roboto-fonts
+  - rsms-inter-fonts
+  - VirtualBox
