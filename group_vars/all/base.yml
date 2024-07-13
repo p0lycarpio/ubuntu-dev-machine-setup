@@ -29,9 +29,11 @@ ubuntu_packages:
   - texlive-fonts-recommended
   - libreoffice-l10n-fr
   - thunderbird-locale-fr
+  - nextcloud-desktop
 
 fedora_packages:
   - flatpak
   - gnome-shell-extension-dash-to-dock
-  - texlive-scheme-medium
+  - nextcloud-client
+  - texlive-scheme-basic
   - vlc

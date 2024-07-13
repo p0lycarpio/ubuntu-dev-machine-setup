@@ -3,10 +3,8 @@
 common_developer_tools:
   - bat
   - colordiff
-  - exa
   - git
   - jq
-  - maven
   - perl
   - pylint
   - python3-pip
@@ -17,7 +15,6 @@ common_developer_tools:
 
 ubuntu_developer_tools:
   - build-essential
-  - default-jdk
   - fonts-firacode
   - fonts-inter
   - fonts-jetbrains-mono

@@ -29,7 +29,5 @@
   loop:
     - com.discordapp.Discord
     - com.mattjakeman.ExtensionManager
-    - com.nextcloud.desktopclient.nextcloud
     - org.gnome.World.Iotas
     - org.keepassxc.KeePassXC
-    - rest.insomnia.Insomnia
