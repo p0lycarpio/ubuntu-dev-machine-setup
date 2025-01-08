@@ -1,0 +1,27 @@
+---
+- name: Install Node with fnm
+  ansible.builtin.uri:
+    url: https://fnm.vercel.app/install
+    return_content: yes
+  register: fnm_installer
+
+- name: Run fnm installer
+  ansible.builtin.shell:
+    cmd: bash
+    stdin: "{{ fnm_installer.content }}"
+
+- name: Install Python uv
+  ansible.builtin.uri:
+    url: https://astral.sh/uv/install.sh
+    return_content: yes
+  register: uv_installer
+
+- name: Run uv installer
+  ansible.builtin.shell:
+    cmd: sh
+    stdin: "{{ uv_installer.content }}"
+
+- name: Install IntelliJ community (snap)
+  community.general.snap:
+    name: intellij-idea-community
+    classic: true

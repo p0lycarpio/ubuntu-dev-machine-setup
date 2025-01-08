@@ -24,6 +24,7 @@ gnome_apps:
 
 ubuntu_packages:
   - apt-transport-https
+  - chromium-browser
   - texlive-lang-french
   - texlive-latex-recommended
   - texlive-fonts-recommended
@@ -32,6 +33,7 @@ ubuntu_packages:
   - nextcloud-desktop
 
 fedora_packages:
+  - chromium
   - flatpak
   - gnome-shell-extension-dash-to-dock
   - nextcloud-client

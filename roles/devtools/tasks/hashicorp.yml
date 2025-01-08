@@ -4,15 +4,15 @@
   block:
   - name: Add hashicorp apt key
     ansible.builtin.apt_key:
-      url: "{{ hashicorp_apt_key_url }}"
+      url: "{{ hashicorp_gpg_key_url }}"
       keyring: "{{ hashicorp_apt_key_keyring }}"
 
-  - name: Add Hashicorp repo for Ubuntu 22.04
+  - name: Add Hashicorp repo
     ansible.builtin.apt_repository:
-      repo: "{{ hashicorp_repo_jammy }}"
+      repo: "{{ hashicorp_apt_repo }}"
       state: present
       filename: hashicorp
-    when: ansible_distribution_release == "jammy"
+    when: ansible_distribution == 'Ubuntu'
 
   - name: Prioritize packages from Hashicorp APT repo
     ansible.builtin.copy:
